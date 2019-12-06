@@ -34,6 +34,10 @@ public class MaterialEditText extends AppCompatEditText {
     public MaterialEditText(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
+        //注意，写成下面代码会报错,getBackground()报空指针异常
+//        this(context, attrs,0);
+        //原因是如果使用super 系统会配置Android原有的默认 defStyleAttr，即 R.attr.editTextStyle
+        //是有Background等其他默认配置的，如果变成0，则没有Background，getBackground()报空指针异常
     }
 
     public MaterialEditText(Context context, AttributeSet attrs, int defStyleAttr) {
